@@ -41,7 +41,7 @@ func defaultSplitter(input string) []string {
 }
 
 func defaultTrimmer(v string) string {
-	return strings.Trim(v,  ",:;!%$#()*\"")
+	return strings.Trim(v, ",:;!%$#()*\"")
 }
 
 func makeTrimmerFunc(cutset string) TrimmerFunc {

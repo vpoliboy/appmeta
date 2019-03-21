@@ -23,7 +23,7 @@ import (
 const (
 	ContentTypeYaml        = "application/x-yaml"
 	ContentTypeJson        = "application/json"
-	NoContentType        = ""
+	NoContentType          = ""
 	ctxKeyMetadataEncoding = "mime"
 	jsonEncoding           = "json"
 )
@@ -50,7 +50,6 @@ func MakeHttpHandler(base string, router *mux.Router, middleware mux.MiddlewareF
 			return ctx
 
 		})),
-
 
 		// All the errors are handled in this configuration.
 		//  This method handlers the status codes and error messages.

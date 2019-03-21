@@ -10,8 +10,8 @@ import (
 )
 
 // Chain stitches together different middlewares and provides a single middleware.
-func Chain(middlewareFuncs... mux.MiddlewareFunc) mux.MiddlewareFunc {
-	return mux.MiddlewareFunc(func (next http.Handler) http.Handler {
+func Chain(middlewareFuncs ...mux.MiddlewareFunc) mux.MiddlewareFunc {
+	return mux.MiddlewareFunc(func(next http.Handler) http.Handler {
 		for _, m := range middlewareFuncs {
 			next = m(next)
 		}

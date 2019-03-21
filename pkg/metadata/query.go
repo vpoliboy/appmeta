@@ -25,7 +25,7 @@ var (
 	descriptionField = SearchField("description")
 
 	// Special meta search field that is used to match against the values of all of the above= fields.
-	anyField         = SearchField("any")
+	anyField = SearchField("any")
 
 	allowedSearchFields = map[SearchField]bool{
 		nameField:        true,
@@ -43,7 +43,6 @@ var (
 
 // Query is an alias of searchfield->term map.
 type Query map[SearchField]string
-
 
 func (q Query) Validate() error {
 	for k := range q {

@@ -22,7 +22,7 @@ metadata.
 * docker run -p 8080:8080 appmeta/latest
 
 
-##Configuration
+## Configuration
 
 The conf/analyzer.json defines the fieldName to tokenizer mapping  which can be overriden. There are four types of tokenizers that are currently 
 supported:

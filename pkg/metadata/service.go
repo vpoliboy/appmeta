@@ -25,18 +25,18 @@ type Service interface {
 }
 
 type metadataSearchService struct {
-	indexer Indexer
+	indexer  Indexer
 	analyzer *Analyzer
-	logger  *logrus.Logger
+	logger   *logrus.Logger
 }
 
 type ServiceOption func(*metadataSearchService) bool
 
 func NewService(logger *logrus.Logger, opts ...ServiceOption) Service {
 	s := &metadataSearchService{
-		indexer: newInMemoryIndexer(logger),
+		indexer:  newInMemoryIndexer(logger),
 		analyzer: &Analyzer{defaultSearchFieldTokenizerMapping},
-		logger:  logger,
+		logger:   logger,
 	}
 	for _, opt := range opts {
 		opt(s)

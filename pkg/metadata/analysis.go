@@ -74,6 +74,6 @@ func (a *Analyzer) analyzeMaintainer(m Maintainer) map[SearchField][]string {
 		nameField: a.tokenizerMapping[nameField].Tokenize(m.Name),
 
 		// Email is exact match field
-		emailField:  a.tokenizerMapping[emailField].Tokenize(m.Email),
+		emailField: a.tokenizerMapping[emailField].Tokenize(m.Email),
 	}
 }

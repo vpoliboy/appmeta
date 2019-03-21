@@ -44,7 +44,7 @@ description: |
  ### Why app 2 is the best
  Because it simply is...`)
 
-	req, err := http.NewRequest(http.MethodPost, server.URL + "/metadata", bytes.NewReader(m1))
+	req, err := http.NewRequest(http.MethodPost, server.URL+"/metadata", bytes.NewReader(m1))
 	assert.Nil(t, err)
 
 	res, err := http.DefaultClient.Do(req)
@@ -61,7 +61,6 @@ description: |
 	assert.Nil(t, err)
 	assert.Len(t, hits, 0)
 	res.Body.Close()
-
 
 	res, err = http.Get(server.URL + "/metadata/_search?name=vijay")
 	assert.Nil(t, err)

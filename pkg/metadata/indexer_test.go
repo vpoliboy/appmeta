@@ -20,7 +20,6 @@ func TestInMemoryIndexer_IndexAndSearch(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Len(t, hits, 0)
 
-
 	m := &Metadata{
 		Title:   "appmeta",
 		Version: "0.1.0",
@@ -36,7 +35,6 @@ func TestInMemoryIndexer_IndexAndSearch(t *testing.T) {
 	searchFields := analyzer.AnalyzePayload(m)
 
 	_, err = indexer.Index(searchFields, m)
-
 
 	m2 := &Metadata{
 		Title:   "appmeta2",
@@ -94,11 +92,9 @@ func TestInMemoryIndexer_ConcurrentIndexAndSearch(t *testing.T) {
 	indexer := newInMemoryIndexer(logrus.New())
 	analyzer := &Analyzer{defaultSearchFieldTokenizerMapping}
 
-
 	for i := 0; i < count; i++ {
 		t.Run(fmt.Sprintf("p-%d", i), func(tt *testing.T) {
 			tt.Parallel()
-
 
 			m := &Metadata{
 				Title:   fmt.Sprintf("appmeta%d", i),

@@ -63,23 +63,21 @@ type Indexer interface {
 type uuidSet map[uuid.UUID]bool
 type TermIndex map[string]uuidSet
 
-
 // inMemoryIndexer implements the indexer interface by two data structures
 //	1. searchIndex of type map[SearchField]map[string]UUID
 //        - maintains the inverted index of fields -> fieldValues/terms -> metadata UUIDs
 //  2. uuid2MetadataIndex of type similar to ConcurrentMap[uuid.UUID]Metadata
 //        - maintains the UUID to metadata payload mapping
 type inMemoryIndexer struct {
-
-	searchMutex        *sync.RWMutex
-	searchIndex        map[SearchField]TermIndex
+	searchMutex *sync.RWMutex
+	searchIndex map[SearchField]TermIndex
 
 	// similar to ConcurrentMap[uuid.UUID]Metadata
 	uuid2MetadataIndex *sync.Map
 
 	// atomic counter for number of items in the index
-	metadataCount      uint64
-	logger             *logrus.Logger
+	metadataCount uint64
+	logger        *logrus.Logger
 }
 
 func newInMemoryIndexer(logger *logrus.Logger) Indexer {
@@ -172,7 +170,6 @@ func (repo *inMemoryIndexer) getUUIDsByField(fieldName SearchField, term string)
 	return termIndex[term], nil
 }
 
-
 // SearchAny tries to match the given term against all the fields. Just a wrapper
 // around the getUUIDsAnyField with the rw mutex.
 func (repo *inMemoryIndexer) SearchAny(term string) ([]*MetadataWithID, error) {
@@ -216,8 +213,8 @@ func (repo *inMemoryIndexer) getUUIDsAnyField(term string) (uuidSet, error) {
 func (repo *inMemoryIndexer) Search(query Query) ([]*MetadataWithID, error) {
 	var (
 		filteredUUIDs uuidSet
-		err             error
-		firstTime              = true
+		err           error
+		firstTime     = true
 	)
 
 	repo.searchMutex.RLock()

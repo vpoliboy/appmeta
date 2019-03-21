@@ -101,7 +101,7 @@ func TestMakeStandardTokenizerFromConfig(t *testing.T) {
 			// inc is filtered out
 			assert.Len(t, tokens, 1)
 			t.Log(tokens)
-		case "website":  // "ExactWordTokenizer",
+		case "website": // "ExactWordTokenizer",
 			tokens := v.Tokenize("https://fireeye.com")
 			assert.Len(t, tokens, 1)
 			t.Log(tokens)

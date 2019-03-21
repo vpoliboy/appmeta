@@ -4,8 +4,6 @@
 
 package metadata
 
-
-
 func IsNotFoundError(err error) bool {
 	return err == errNotFound
 }

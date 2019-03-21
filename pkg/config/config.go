@@ -40,5 +40,5 @@ func LoadAnalyzerConfig(confDir string) (map[metadata.SearchField]metadata.Token
 	if err != nil {
 		return nil, ErrInvalidAnalyzerFormat
 	}
-	return mconfig.CreateFieldTokenizers(analyzerConfig);
+	return mconfig.CreateFieldTokenizers(analyzerConfig)
 }

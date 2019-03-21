@@ -8,13 +8,13 @@ import "strings"
 
 var (
 	// DefaultPerWordTokenizer splits the input on whitespace and filters out any 0 or 1 length words along with the common words.
-	DefaultPerWordTokenizer    = NewStandardTokenizer()
+	DefaultPerWordTokenizer = NewStandardTokenizer()
 
 	// DefaultExactMatchTokenizer converts the given input to lowercase but does not do any breaks.
 	DefaultExactMatchTokenizer = &exactMatchTokenizer{}
 
 	// DefaultNopTokenizer does not tokenize making the field unsearchable, useful when not indexing for the field is required
-	DefaultNopTokenizer        = &nopTokenizer{}
+	DefaultNopTokenizer = &nopTokenizer{}
 )
 
 // Tokenizer converts the given input into searchable tokens
