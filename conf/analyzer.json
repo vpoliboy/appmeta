@@ -1,0 +1,56 @@
+{
+  "tokenizerConfig" : [
+    {
+      "name": "SpaceDelimitedWordTokenizer",
+      "type" : "Standard",
+      "config": {
+        "stopWords": [
+          "and",
+          "is",
+          "an",
+          "then",
+          "the",
+          "not",
+          "when",
+          "or",
+          "to",
+          "from",
+          "for",
+          "of",
+          "if",
+          "at",
+          "about",
+          "use",
+          "with",
+          "inc",
+          "llc"
+        ],
+        "cutset": ",:;!%$#()*\"",
+        "separator": ""
+      }
+    },
+    {
+      "name": "ExactWordTokenizer",
+      "type": "ExactMatch"
+    },
+    {
+      "name": "ChainedTokenizer",
+      "type": "Chain",
+      "config": {
+        "tokenizers" : ["SpaceDelimitedWordTokenizer", "ExactWordTokenizer"]
+      }
+    }
+  ],
+
+  "fieldConfig": {
+    "name": "ChainedTokenizer",
+    "email": "ExactWordTokenizer",
+    "title": "ExactWordTokenizer",
+    "version": "ExactWordTokenizer",
+    "company": "SpaceDelimitedWordTokenizer",
+    "website": "ExactWordTokenizer",
+    "source": "ExactWordTokenizer",
+    "license": "ExactWordTokenizer",
+    "description": "SpaceDelimitedWordTokenizer"
+  }
+}
