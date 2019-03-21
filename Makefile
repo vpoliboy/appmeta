@@ -25,11 +25,11 @@ checked_build:
 	go vet ./cmd/server
 	go build -race -mod vendor -o bin/appmeta ./cmd/server
 
-test:
-ifeq (${VERBOSE}, 1)
-	go test -v -race -parallel ${PARALLEL} -race -mod vendor ./pkg/metadata/...
+test: ${VENDOR_DEP}
+ifeq (${VENDOR}, 1)
+	go test -v -race -parallel ${PARALLEL} -mod vendor ./pkg/metadata/...
 else
-	go test -race -parallel ${PARALLEL} -mod vendor ./pkg/metadata/...
+	go test -v -race -parallel ${PARALLEL} ./pkg/metadata/...
 endif
 
 doc:
